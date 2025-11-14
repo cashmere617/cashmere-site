@@ -1,103 +1,448 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title>Cashmere 617 | Personal Site</title>
+  <title>Cashmere | 王老师的个人网站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="托福教学、留学申请与经济学学习分享，by 王老师 / Tom / Cashmere。">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
       background: #f5f5f7;
       color: #222;
+      line-height: 1.6;
     }
-    header {
-      padding: 60px 20px;
-      text-align: center;
-      background: #ffffff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-    header h1 {
-      margin: 0 0 10px;
-      font-size: 2.4rem;
-    }
-    header p {
-      margin: 0;
-      color: #555;
-    }
-    main {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px 60px;
-    }
-    section {
-      margin-bottom: 40px;
-      background: #fff;
-      padding: 24px 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    section h2 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      font-size: 1.4rem;
-    }
-    .tagline {
-      font-style: italic;
-      color: #777;
-    }
-    ul {
-      padding-left: 18px;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #777;
-      padding: 20px 0 30px;
-    }
+
     a {
       color: #0070f3;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
+    }
+
+    /* 顶部导航 & Hero */
+    header {
+      background: radial-gradient(circle at top left, #fef4ff 0, #ffffff 40%, #eef3ff 100%);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .nav {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.95rem;
+    }
+
+    .logo {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 0.98rem;
+    }
+
+    .logo span {
+      opacity: 0.6;
+      font-size: 0.78rem;
+      margin-left: 6px;
+    }
+
+    .nav-links a {
+      margin-left: 18px;
+      font-size: 0.92rem;
+      opacity: 0.8;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .hero {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 20px 36px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: 2.1rem;
+      margin: 0 0 10px;
+    }
+
+    .hero-sub {
+      margin: 0 0 14px;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 20px;
+    }
+
+    .tag {
+      font-size: 0.82rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.04);
+      color: #555;
+    }
+
+    .hero-note {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .hero-photo-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-photo-card {
+      background: #fff;
+      padding: 14px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+      text-align: center;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 10px;
+    }
+
+    .avatar-caption {
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    /* 主体内容 */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    section {
+      margin-top: 32px;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 22px 20px 20px;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    }
+
+    section h2 {
+      margin: 0 0 12px;
+      font-size: 1.3rem;
+    }
+
+    section p {
+      margin: 8px 0;
+      font-size: 0.96rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.88rem;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      background: #fff6cc;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 20px;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #f3f4ff;
+      font-size: 0.82rem;
+      color: #555;
+    }
+
+    .quote {
+      margin: 10px 0;
+      padding-left: 10px;
+      border-left: 3px solid #e5e7eb;
+      font-size: 0.9rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 6px 0;
+    }
+
+    li {
+      font-size: 0.94rem;
+      margin: 3px 0;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      padding: 18px 0 28px;
+    }
+
+    /* 联系方式按钮 */
+    .contact-box {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #f6f7ff;
+      font-size: 0.9rem;
+    }
+
+    .contact-box strong {
+      font-weight: 600;
+    }
+
+    .contact-btns {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn {
+      font-size: 0.86rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #c7d2fe;
+      background: #ffffff;
+      cursor: default;
+    }
+
+    .btn.primary {
+      background: #111827;
+      color: #f9fafb;
+      border-color: #111827;
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 26px;
+      }
+
+      .hero-title {
+        font-size: 1.7rem;
+      }
+
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .nav-links {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Hi, I’m Cashmere</h1>
-    <p class="tagline">Personal website of cashmere617.com</p>
+    <div class="nav">
+      <div class="logo">
+        cashmere617.com
+        <span>个人网站 / 王老师</span>
+      </div>
+      <div class="nav-links">
+        <a href="#about">关于我</a>
+        <a href="#toefl">托福故事</a>
+        <a href="#philosophy">教学理念</a>
+        <a href="#contact">联系</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div>
+        <h1 class="hero-title">Hi，我是王老师 / Tom / Cashmere</h1>
+        <p class="hero-sub">
+          UVA 双学位本科生 &amp; Cornell 经济学硕士。  
+          教学托福多年，陪很多同学从<strong>80+</strong>走到<strong>100+</strong>，申请上美国 Top 50。
+        </p>
+        <div class="hero-tags">
+          <span class="tag">UVA 历史学 &amp; 经济学双学位</span>
+          <span class="tag">数据分析 / 编程辅修</span>
+          <span class="tag">Cornell 经济学硕士</span>
+          <span class="tag">托福教学实战经验 60+ 学生</span>
+        </div>
+        <p class="hero-note">
+          其实你叫我什么都行：王老师、Tom 老师、老师、Tom、Cashmere 都可以。<br />
+          我希望这里可以慢慢变成一个：分享留学、托福和学习方法的小角落。
+        </p>
+      </div>
+
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-card">
+          <!-- 把你的照片放在 images/me.jpg -->
+          <img src="images/me.jpg" alt="Photo of Cashmere / 王老师" class="avatar" />
+          <div class="avatar-caption">
+            如果你看到这里的头像说明你已经成功放好照片啦 :)
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main>
-    <section>
-      <h2>About Me</h2>
+    <section id="about">
+      <h2>关于我（About Me）</h2>
       <p>
-        This is a simple personal website hosted on Vercel and using the domain
-        <strong>cashmere617.com</strong>. I’m still building it, but more content is coming soon. :)
+        初中结束时我就决定要来美国读书，高中在一所国际高中完成；本科就读于
+        <strong>University of Virginia（弗吉尼亚大学，UVA）</strong>，是美国综合排名大约第 24 名的一所公立名校。
+      </p>
+      <p>
+        在 UVA，我完成了 <strong>历史学</strong> 和 <strong>经济学</strong> 的双学位（偏宏观和国际发展经济学方向），
+        同时辅修 <strong>数据分析（编程）</strong>。一边读历史，一边做经济学和数据分析，对我来说很像在同时练“大脑的左脑和右脑”。
+      </p>
+      <p>
+        现在，我在 <strong>Cornell University（康奈尔大学）</strong> 继续攻读经济学硕士，
+        一边上课、一边做研究，也在思考“学到的这些东西，怎样真的帮助到人”。
+      </p>
+      <div class="pill-list">
+        <span class="pill">UVA 双学位：History &amp; Economics</span>
+        <span class="pill">数据分析 / 编程辅修</span>
+        <span class="pill">Cornell 经济学硕士</span>
+        <span class="pill">留学 &amp; 托福路径的亲身经历</span>
+      </div>
+    </section>
+
+    <section id="toefl">
+      <h2>我和托福教学的故事</h2>
+      <p class="section-subtitle">
+        从帮同学刷分，到带 60+ 学生出分，这件事一直让我很快乐。
+      </p>
+      <div class="two-col">
+        <div>
+          <p>
+            我真正开始教托福，是在高中申请美国本科的时候。那时候我通过
+            <strong>Early Decision（提前录取）</strong> 拿到了录取通知，距离正式上大学还有大概 10 个月的空档。
+          </p>
+          <p>
+            那段时间，我一开始只是单纯在帮同学提高托福成绩。还记得当时经常是晚上给几个同学
+            <span class="highlight">上网课讲题、改答案、分析错误</span>，一步一步帮他们把分数从
+            <strong>80 多分</strong> 提高到 <strong>100 出头</strong>。
+          </p>
+          <p>
+            后来，他们也顺利申请上了美国前 50 的学校。那是我第一次很强烈地感觉到：
+          </p>
+          <p class="quote">
+            “原来我可以在别人的人生节点上，真的产生一点点影响。”
+          </p>
+        </div>
+        <div>
+          <p>
+            后来，我在自己当时上课的机构做托福老师，官方收费大概是 
+            <strong>800 元 / 小时</strong>（当然并不是全部到我手上 😅）。
+          </p>
+          <p>
+            再后来，我发现自己是一个比较<strong>闲不下来</strong>的人：我的 MBTI 是
+            <strong>INFJ</strong>，在学业空一点、实习不那么忙的时候，我经常就会“随缘”带学生，
+            到现在已经带过 <strong>60 多个同学</strong>。
+          </p>
+          <p>
+            因为不是靠语言教学谋生，所以我对这件事并不功利——我不需要靠上很多课来养活自己，
+            反而更在乎：
+          </p>
+          <ul>
+            <li>你是不是真的搞懂题目背后的逻辑</li>
+            <li>你是不是慢慢开始不那么害怕英语和考试</li>
+            <li>你的分数是不是一点一点向你的目标靠近，甚至超过</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="philosophy">
+      <h2>教学理念：我们站在同一边</h2>
+      <p>
+        用一句话总结我带学生的心态，就是：
+      </p>
+      <p class="quote">
+        “我不靠语言教学为生，但我会因为你出分而开心很久。”
+      </p>
+      <p>
+        所以在托福这件事上，我们是<strong>完全站在同一边</strong>的：  
+        你的目标，就是我的目标。
+      </p>
+      <p>
+        过去几年，我的状态一直是“有空就带一些学生”，不是海量招生，也不是流水线课程，而是尽量了解每个人的情况，
+        然后给出<strong>具体、可执行</strong>的建议和练习路径。
+      </p>
+      <p>
+        换句话说：
+      </p>
+      <ul>
+        <li>我不会用“报更多课”来制造焦虑；</li>
+        <li>我更关心你能不能养成自己的学习节奏；</li>
+        <li>我希望你在出分的同时，也对自己的能力更有信心。</li>
+      </ul>
+      <p>
+        <strong>我们的共同目标很简单：</strong>  
+        <span class="highlight">你能出分，甚至高过你的目标分。</span>
       </p>
     </section>
 
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li>Project 1 – Coming soon</li>
-        <li>Project 2 – Coming soon</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Contact</h2>
+    <section id="contact">
+      <h2>如果你想联系我</h2>
       <p>
-        You can reach me at:
-        <a href="mailto:yourname@example.com">yourname@example.com</a>
+        目前这个网站还在慢慢建设中，后面会陆续加上：托福备考经验、留学申请心得、以及一点点经济学 / 历史相关的分享。
+      </p>
+      <div class="contact-box">
+        <p>
+          暂时你可以通过邮箱联系我（可以备注你是谁、目前大概分数、目标分）：  
+        </p>
+        <p><strong>Email：</strong><a href="mailto:yourname@example.com">yourname@example.com</a></p>
+        <div class="contact-btns">
+          <div class="btn primary">托福 / 留学相关问题</div>
+          <div class="btn">学业 &amp; 经济学相关问题</div>
+          <div class="btn">只是想聊天也可以 :)</div>
+        </div>
+      </div>
+      <p style="font-size:0.9rem; color:#777; margin-top:10px;">
+        以后会考虑加上更方便的联系渠道（例如微信二维码等），等我慢慢把这个小网站打磨好一点再说。
       </p>
     </section>
   </main>
 
   <footer>
-    © <span id="year"></span> cashmere617.com
+    © <span id="year"></span> cashmere617.com · Crafted with curiosity and a bit of caffeine.
   </footer>
 
   <script>
