@@ -79,6 +79,7 @@
     .hero-title {
       font-size: 2.1rem;
       margin: 0 0 10px;
+      min-height: 2.8rem;
     }
 
     .hero-sub {
@@ -458,7 +459,7 @@
 
     <div class="hero">
       <div>
-        <h1 class="hero-title">Hi, 我是绝望的生鱼片/王老师</h1>
+        <h1 class="hero-title" id="heroTitle"></h1>
         <p class="hero-note">
           叫我什么都行：王老师、Tom 老师、老师、Tom、Cashmere 都可以。<br />
           我希望这里可以慢慢变成一个：分享留学、托福和学习方法的小角落。
@@ -527,12 +528,28 @@
           <div class="carousel-slide">
             <img src="images/kayak2.jpeg" alt="Kayaking 2" />
           </div>
+          <div class="carousel-slide">
+            <img src="images/s1.jpeg" alt="Sports 1" />
+          </div>
+          <div class="carousel-slide">
+            <img src="images/s2.jpeg" alt="Sports 2" />
+          </div>
+          <div class="carousel-slide">
+            <img src="images/s3.jpeg" alt="Sports 3" />
+          </div>
+          <div class="carousel-slide">
+            <img src="images/s4.jpeg" alt="Sports 4" />
+          </div>
         </div>
         <button class="carousel-button prev" onclick="prevSlide('sportsCarousel')">❮</button>
         <button class="carousel-button next" onclick="nextSlide('sportsCarousel')">❯</button>
         <div class="carousel-dots">
           <div class="carousel-dot active" onclick="goToSlide('sportsCarousel', 0)"></div>
           <div class="carousel-dot" onclick="goToSlide('sportsCarousel', 1)"></div>
+          <div class="carousel-dot" onclick="goToSlide('sportsCarousel', 2)"></div>
+          <div class="carousel-dot" onclick="goToSlide('sportsCarousel', 3)"></div>
+          <div class="carousel-dot" onclick="goToSlide('sportsCarousel', 4)"></div>
+          <div class="carousel-dot" onclick="goToSlide('sportsCarousel', 5)"></div>
         </div>
       </div>
 
@@ -665,6 +682,28 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Typewriter effect for hero title
+    function typeWriter(element, text, speed = 80) {
+      element.textContent = '';
+      let index = 0;
+      
+      function type() {
+        if (index < text.length) {
+          element.textContent += text.charAt(index);
+          index++;
+          setTimeout(type, speed);
+        }
+      }
+      
+      type();
+    }
+
+    // Start typewriter effect when page loads
+    window.addEventListener('load', function() {
+      const heroTitle = document.getElementById('heroTitle');
+      typeWriter(heroTitle, 'Hi, 我是绝望的生鱼片/王老师', 100);
+    });
 
     // Carousel functionality
     const carouselStates = {};
