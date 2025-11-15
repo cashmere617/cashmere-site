@@ -94,6 +94,47 @@
       margin: 10px 0 20px;
     }
 
+    /* 教育信息卡片 */
+    .edu-cards {
+      display: flex;
+      gap: 12px;
+      margin: 10px 0 20px;
+      align-items: stretch;
+    }
+
+    .edu-card {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 10px 12px;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+      border: 1px solid rgba(15,23,42,0.04);
+      min-width: 0;
+      flex: 1 1 0;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .edu-card .edu-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    .edu-card .edu-body {
+      color: #444;
+      font-size: 0.92rem;
+      line-height: 1.3;
+    }
+
+    .edu-logo {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      flex: 0 0 44px;
+    }
+
     .tag {
       font-size: 0.82rem;
       padding: 4px 10px;
@@ -260,6 +301,10 @@
         padding-top: 26px;
       }
 
+      .edu-cards {
+        flex-direction: column;
+      }
+
       .hero-title {
         font-size: 1.7rem;
       }
@@ -291,16 +336,22 @@
 
     <div class="hero">
       <div>
-        <h1 class="hero-title">Hi，我是王老师 / Tom / Cashmere</h1>
-        <p class="hero-sub">
-          UVA 双学位本科生 &amp; Cornell 经济学硕士。  
-          教学托福多年，陪很多同学从<strong>80+</strong>走到<strong>100+</strong>，申请上美国 Top 50。
-        </p>
-        <div class="hero-tags">
-          <span class="tag">UVA 历史学 &amp; 经济学双学位</span>
-          <span class="tag">数据分析 / 编程辅修</span>
-          <span class="tag">Cornell 经济学硕士</span>
-          <span class="tag">托福教学实战经验 60+ 学生</span>
+        <h1 class="hero-title">Hi, 我是绝望的生鱼片/王老师</h1>
+        <div class="edu-cards">
+          <div class="edu-card">
+            <img src="images/uva.png" alt="UVA 校徽" class="edu-logo" />
+            <div>
+              <div class="edu-title">本科</div>
+              <div class="edu-body">美国 弗吉尼亚大学 — U.S. News Top 24</div>
+            </div>
+          </div>
+          <div class="edu-card">
+            <img src="images/cornell.png" alt="Cornell 校徽" class="edu-logo" />
+            <div>
+              <div class="edu-title">研究生</div>
+              <div class="edu-body">美国 康奈尔大学 SC Johnson 商学院 — U.S. News Top 11; QS Top 16</div>
+            </div>
+          </div>
         </div>
         <p class="hero-note">
           其实你叫我什么都行：王老师、Tom 老师、老师、Tom、Cashmere 都可以。<br />
@@ -312,9 +363,6 @@
         <div class="hero-photo-card">
           <!-- 把你的照片放在 images/me.jpeg -->
           <img src="images/me.jpeg" alt="Photo of Cashmere / 王老师" class="avatar" />
-          <div class="avatar-caption">
-            如果你看到这里的头像说明你已经成功放好照片啦 :)
-          </div>
         </div>
       </div>
     </div>
@@ -420,14 +468,8 @@
     </section>
 
     <section id="contact">
-      <h2>如果你想联系我</h2>
-      <p>
-        目前这个网站还在慢慢建设中，后面会陆续加上：托福备考经验、留学申请心得、以及一点点经济学 / 历史相关的分享。
-      </p>
+      <h2>联系方式</h2>
       <div class="contact-box">
-        <p>
-          暂时你可以通过邮箱联系我（可以备注你是谁、目前大概分数、目标分）：  
-        </p>
         <p><strong>Email：</strong><a href="mailto:zhichong1662@gmail.com">zhichong1662@gmail.com</a></p>
         <p><strong>微信：</strong><span>TOEFL1208</span></p>
         <p><strong>闲鱼：</strong><span>绝望的生鱼片</span></p>
@@ -437,9 +479,6 @@
           <div class="btn">只是想聊天也可以 :)</div>
         </div>
       </div>
-      <p style="font-size:0.9rem; color:#777; margin-top:10px;">
-        以后会考虑加上更方便的联系渠道（例如微信二维码等），等我慢慢把这个小网站打磨好一点再说。
-      </p>
     </section>
   </main>
 
