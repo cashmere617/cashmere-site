@@ -324,6 +324,90 @@
       border-color: #111827;
     }
 
+    /* 轮播组件 */
+    .carousel-container {
+      position: relative;
+      max-width: 100%;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: background 0.2s;
+      z-index: 10;
+    }
+
+    .carousel-button:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .carousel-button.prev {
+      left: 12px;
+    }
+
+    .carousel-button.next {
+      right: 12px;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      z-index: 10;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .carousel-dot.active {
+      background: rgba(255, 255, 255, 1);
+    }
+
     /* 响应式 */
     @media (max-width: 768px) {
       .hero {
@@ -350,6 +434,10 @@
 
       .nav-links {
         display: none;
+      }
+
+      .carousel-slide {
+        height: 300px;
       }
     }
   </style>
@@ -432,19 +520,55 @@
     <section id="hobbies">
       <h2>兴趣爱好</h2>
       <h3 style="font-size: 1.1rem; margin: 14px 0 10px; font-weight: 600;">运动</h3>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px;">
-        <img src="images/kayak1.jpg" alt="Kayaking 1" style="width: 100%; height: auto; border-radius: 12px; object-fit: cover;" />
-        <img src="images/kayak2.jpeg" alt="Kayaking 2" style="width: 100%; height: auto; border-radius: 12px; object-fit: cover;" />
+      <div class="carousel-container" id="sportsCarousel">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="images/kayak1.jpg" alt="Kayaking 1" />
+          </div>
+          <div class="carousel-slide">
+            <img src="images/kayak2.jpeg" alt="Kayaking 2" />
+          </div>
+        </div>
+        <button class="carousel-button prev" onclick="prevSlide('sportsCarousel')">❮</button>
+        <button class="carousel-button next" onclick="nextSlide('sportsCarousel')">❯</button>
+        <div class="carousel-dots">
+          <div class="carousel-dot active" onclick="goToSlide('sportsCarousel', 0)"></div>
+          <div class="carousel-dot" onclick="goToSlide('sportsCarousel', 1)"></div>
+        </div>
       </div>
 
       <h3 style="font-size: 1.1rem; margin: 20px 0 10px; font-weight: 600;">旅行 / 摄影</h3>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px;">
-        <img src="images/p3.jpeg" alt="Travel photo 3" style="width: 100%; height: auto; border-radius: 12px; object-fit: cover;" />
-        <img src="images/p4.jpeg" alt="Travel photo 4" style="width: 100%; height: auto; border-radius: 12px; object-fit: cover;" />
-        <img src="images/p5.jpeg" alt="Travel photo 5" style="width: 100%; height: auto; border-radius: 12px; object-fit: cover;" />
-        <img src="images/p6.jpeg" alt="Travel photo 6" style="width: 100%; height: auto; border-radius: 12px; object-fit: cover;" />
-        <img src="images/p7.jpeg" alt="Travel photo 7" style="width: 100%; height: auto; border-radius: 12px; object-fit: cover;" />
-        <img src="images/p8.JPG" alt="Travel photo 8" style="width: 100%; height: auto; border-radius: 12px; object-fit: cover;" />
+      <div class="carousel-container" id="travelCarousel">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="images/p3.jpeg" alt="Travel photo 3" />
+          </div>
+          <div class="carousel-slide">
+            <img src="images/p4.jpeg" alt="Travel photo 4" />
+          </div>
+          <div class="carousel-slide">
+            <img src="images/p5.jpeg" alt="Travel photo 5" />
+          </div>
+          <div class="carousel-slide">
+            <img src="images/p6.jpeg" alt="Travel photo 6" />
+          </div>
+          <div class="carousel-slide">
+            <img src="images/p7.jpeg" alt="Travel photo 7" />
+          </div>
+          <div class="carousel-slide">
+            <img src="images/p8.JPG" alt="Travel photo 8" />
+          </div>
+        </div>
+        <button class="carousel-button prev" onclick="prevSlide('travelCarousel')">❮</button>
+        <button class="carousel-button next" onclick="nextSlide('travelCarousel')">❯</button>
+        <div class="carousel-dots">
+          <div class="carousel-dot active" onclick="goToSlide('travelCarousel', 0)"></div>
+          <div class="carousel-dot" onclick="goToSlide('travelCarousel', 1)"></div>
+          <div class="carousel-dot" onclick="goToSlide('travelCarousel', 2)"></div>
+          <div class="carousel-dot" onclick="goToSlide('travelCarousel', 3)"></div>
+          <div class="carousel-dot" onclick="goToSlide('travelCarousel', 4)"></div>
+          <div class="carousel-dot" onclick="goToSlide('travelCarousel', 5)"></div>
+        </div>
       </div>
     </section>
 
@@ -507,6 +631,56 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Carousel functionality
+    const carouselStates = {};
+
+    function initCarousel(carouselId) {
+      if (!carouselStates[carouselId]) {
+        carouselStates[carouselId] = { currentIndex: 0 };
+      }
+    }
+
+    function updateCarousel(carouselId) {
+      const carousel = document.getElementById(carouselId);
+      const track = carousel.querySelector('.carousel-track');
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const dots = carousel.querySelectorAll('.carousel-dot');
+      
+      const state = carouselStates[carouselId];
+      const offset = -state.currentIndex * 100;
+      track.style.transform = `translateX(${offset}%)`;
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === state.currentIndex);
+      });
+    }
+
+    function nextSlide(carouselId) {
+      initCarousel(carouselId);
+      const carousel = document.getElementById(carouselId);
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const state = carouselStates[carouselId];
+      
+      state.currentIndex = (state.currentIndex + 1) % slides.length;
+      updateCarousel(carouselId);
+    }
+
+    function prevSlide(carouselId) {
+      initCarousel(carouselId);
+      const carousel = document.getElementById(carouselId);
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const state = carouselStates[carouselId];
+      
+      state.currentIndex = (state.currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel(carouselId);
+    }
+
+    function goToSlide(carouselId, index) {
+      initCarousel(carouselId);
+      carouselStates[carouselId].currentIndex = index;
+      updateCarousel(carouselId);
+    }
   </script>
 </body>
 </html>
