@@ -408,6 +408,81 @@
       background: rgba(255, 255, 255, 1);
     }
 
+    /* 关于我区块的横向照片画廊（与爱好区不同的滑动体验） */
+    .about-gallery-wrap {
+      position: relative;
+      margin-top: 14px;
+    }
+
+    .about-gallery {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
+    }
+
+    .about-slide {
+      flex: 0 0 32%;
+      scroll-snap-align: center;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(15,23,42,0.06);
+      background: #fff;
+    }
+
+    .about-slide img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      z-index: 10;
+    }
+
+    .about-button.prev { left: 8px; }
+    .about-button.next { right: 8px; }
+    
+    .about-button:hover {
+      background: rgba(0,0,0,0.7);
+    }
+
+    /* 自动播放：当鼠标离开画廊时恢复播放 */
+    .about-gallery.auto-playing {
+      animation: autoScroll 6s linear infinite;
+    }
+
+    @keyframes autoScroll {
+      0% { scroll-behavior: auto; }
+    }
+
+    .about-gallery:hover,
+    .about-gallery.paused {
+      animation: none;
+    }
+
+    @media (max-width: 768px) {
+      .about-slide { flex: 0 0 82%; }
+      .about-slide img { height: 220px; }
+    }
+
     /* 响应式 */
     @media (max-width: 768px) {
       .hero {
@@ -516,6 +591,19 @@
           </ul>
         </li>
       </ul>
+
+      <div class="about-gallery-wrap">
+        <button class="about-button prev" onclick="scrollAbout('aboutGallery', -1)" aria-label="上一张">❮</button>
+        <div id="aboutGallery" class="about-gallery" aria-label="关于我的照片轮播">
+          <div class="about-slide"><img src="images/me2.jpeg" alt="Photo me2" /></div>
+          <div class="about-slide"><img src="images/me3.jpeg" alt="Photo me3" /></div>
+          <div class="about-slide"><img src="images/me4.jpeg" alt="Photo me4" /></div>
+          <div class="about-slide"><img src="images/me5.jpeg" alt="Photo me5" /></div>
+          <div class="about-slide"><img src="images/me6.jpeg" alt="Photo me6" /></div>
+          <div class="about-slide"><img src="images/me7.jpeg" alt="Photo me7" /></div>
+        </div>
+        <button class="about-button next" onclick="scrollAbout('aboutGallery', 1)" aria-label="下一张">❯</button>
+      </div>
     </section>
 
     <section id="hobbies">
@@ -654,7 +742,7 @@
         到现在已经带过 <strong>60 多个同学</strong>。
       </p>
       <p>
-        因为不是靠语言教学谋生，我也并不缺钱，所以我对这件事并不功利反而更在乎：
+        因为不是靠语言教学谋生，所以我对这件事并不是以功利为目的，相比之下我更加在乎：
       </p>
       <ul>
         <li>你真的能出分！因为我会很开心！</li>
@@ -770,6 +858,73 @@
       carouselStates[carouselId].currentIndex = index;
       updateCarousel(carouselId);
     }
+
+    // 关于我画廊：带自动播放、手动控制、及暂停恢复的滚动功能
+    let aboutAutoPlayInterval = null;
+
+    function startAboutAutoPlay(galleryId) {
+      const container = document.getElementById(galleryId);
+      if (!container) return;
+
+      // 清除已有的自动播放
+      if (aboutAutoPlayInterval) clearInterval(aboutAutoPlayInterval);
+
+      // 每 4 秒自动向右滚动一张
+      aboutAutoPlayInterval = setInterval(() => {
+        scrollAbout(galleryId, 1, false); // false = 不清除自动播放标志
+      }, 4000);
+
+      // 标记为自动播放中
+      container.classList.add('auto-playing');
+      container.classList.remove('paused');
+    }
+
+    function pauseAboutAutoPlay(galleryId) {
+      const container = document.getElementById(galleryId);
+      if (!container) return;
+      
+      if (aboutAutoPlayInterval) clearInterval(aboutAutoPlayInterval);
+      container.classList.add('paused');
+      container.classList.remove('auto-playing');
+    }
+
+    function resumeAboutAutoPlay(galleryId) {
+      const container = document.getElementById(galleryId);
+      if (!container) return;
+      
+      if (container.classList.contains('paused')) {
+        container.classList.remove('paused');
+        startAboutAutoPlay(galleryId);
+      }
+    }
+
+    function scrollAbout(galleryId, dir, shouldPauseAuto = true) {
+      const container = document.getElementById(galleryId);
+      if (!container) return;
+      
+      // 手动点击按钮时暂停自动播放
+      if (shouldPauseAuto) {
+        pauseAboutAutoPlay(galleryId);
+      }
+
+      const slide = container.querySelector('.about-slide');
+      const gap = 12; // CSS gap
+      const step = (slide ? slide.clientWidth : Math.floor(container.clientWidth * 0.8)) + gap;
+      container.scrollBy({ left: step * dir, behavior: 'smooth' });
+    }
+
+    // 页面加载完后启动自动播放
+    window.addEventListener('load', function() {
+      startAboutAutoPlay('aboutGallery');
+      
+      // 鼠标离开画廊时恢复自动播放
+      const gallery = document.getElementById('aboutGallery');
+      if (gallery) {
+        gallery.addEventListener('mouseleave', function() {
+          resumeAboutAutoPlay('aboutGallery');
+        });
+      }
+    });
   </script>
 </body>
 </html>
