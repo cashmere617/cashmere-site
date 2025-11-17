@@ -151,38 +151,38 @@
           <div class="chart-container">
             <svg width="300" height="300" viewBox="0 0 300 300">
               <circle cx="150" cy="150" r="100" fill="none" stroke="#f0f0f0" stroke-width="60"/>
-              <circle id="slice1" cx="150" cy="150" r="100" fill="none" stroke="#4F46E5" stroke-width="60" 
+              <circle id="slice1" cx="150" cy="150" r="100" fill="none" stroke="#A7C7E7" stroke-width="60" 
                       stroke-dasharray="263.89 628.32" stroke-dashoffset="0" transform="rotate(-90 150 150)" 
                       class="chart-slice" onmouseenter="highlightSlice(0)" onmouseleave="resetChart()"/>
-              <circle id="slice2" cx="150" cy="150" r="100" fill="none" stroke="#10B981" stroke-width="60" 
+              <circle id="slice2" cx="150" cy="150" r="100" fill="none" stroke="#B4E7CE" stroke-width="60" 
                       stroke-dasharray="289.03 628.32" stroke-dashoffset="-263.89" transform="rotate(-90 150 150)" 
                       class="chart-slice" onmouseenter="highlightSlice(1)" onmouseleave="resetChart()"/>
-              <circle id="slice3" cx="150" cy="150" r="100" fill="none" stroke="#F59E0B" stroke-width="60" 
+              <circle id="slice3" cx="150" cy="150" r="100" fill="none" stroke="#FFD6A5" stroke-width="60" 
                       stroke-dasharray="75.40 628.32" stroke-dashoffset="-552.92" transform="rotate(-90 150 150)" 
                       class="chart-slice" onmouseenter="highlightSlice(2)" onmouseleave="resetChart()"/>
             </svg>
             <div class="chart-center">
-              <div class="chart-center-title">学生总数</div>
-              <div class="chart-center-value" id="chartCenterValue">60+</div>
+              <div class="chart-center-title" id="chartCenterTitle">学生总数</div>
+              <div class="chart-center-value" id="chartCenterValue">62</div>
             </div>
           </div>
           <div class="chart-legend">
             <div class="legend-item" onmouseenter="highlightSlice(0)" onmouseleave="resetChart()">
-              <div class="legend-color" style="background:#4F46E5"></div>
+              <div class="legend-color" style="background:#A7C7E7"></div>
               <div class="legend-text">
                 <div><span class="legend-percent">高中生 42%</span></div>
                 <div class="legend-detail">普高、国际部、美高、国际学校</div>
               </div>
             </div>
             <div class="legend-item" onmouseenter="highlightSlice(1)" onmouseleave="resetChart()">
-              <div class="legend-color" style="background:#10B981"></div>
+              <div class="legend-color" style="background:#B4E7CE"></div>
               <div class="legend-text">
                 <div><span class="legend-percent">大学生 46%</span></div>
                 <div class="legend-detail">中科院、复旦大学、上海交大、西安交大、北京外国语、香港大学、南京航空航天大学</div>
               </div>
             </div>
             <div class="legend-item" onmouseenter="highlightSlice(2)" onmouseleave="resetChart()">
-              <div class="legend-color" style="background:#F59E0B"></div>
+              <div class="legend-color" style="background:#FFD6A5"></div>
               <div class="legend-text">
                 <div><span class="legend-percent">已工作群体 12%</span></div>
               </div>
@@ -198,13 +198,14 @@
 
     // Chart interaction
     const chartData = [
-      { label: '高中生', percent: 42, value: '25+' },
-      { label: '大学生', percent: 46, value: '28+' },
-      { label: '已工作', percent: 12, value: '7+' }
+      { label: '高中生', percent: '42%', count: 26 },
+      { label: '大学生', percent: '46%', count: 29 },
+      { label: '已工作群体', percent: '12%', count: 7 }
     ];
 
     function highlightSlice(index) {
       const slices = document.querySelectorAll('.chart-slice');
+      const centerTitle = document.getElementById('chartCenterTitle');
       const centerValue = document.getElementById('chartCenterValue');
       
       slices.forEach((slice, i) => {
@@ -216,11 +217,13 @@
         }
       });
       
-      centerValue.textContent = chartData[index].value;
+      centerTitle.textContent = chartData[index].label;
+      centerValue.textContent = chartData[index].percent;
     }
 
     function resetChart() {
       const slices = document.querySelectorAll('.chart-slice');
+      const centerTitle = document.getElementById('chartCenterTitle');
       const centerValue = document.getElementById('chartCenterValue');
       
       slices.forEach(slice => {
@@ -228,7 +231,8 @@
         slice.style.filter = 'none';
       });
       
-      centerValue.textContent = '60+';
+      centerTitle.textContent = '学生总数';
+      centerValue.textContent = '62';
     }
 
     // Carousel functions
