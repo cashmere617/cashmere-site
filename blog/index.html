@@ -5,26 +5,42 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Blog · cashmere617</title>
   <style>
-    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",PingFang SC,Microsoft YaHei,sans-serif;margin:0;background:#f7f7fb;color:#222}
-    .wrap{max-width:900px;margin:36px auto;padding:20px}
-    header{display:flex;align-items:center;justify-content:space-between}
-    h1{font-size:1.4rem;margin:0}
+    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",PingFang SC,Microsoft YaHei,sans-serif;margin:0;background:#f5f5f7;color:#222}
+    a{color:#0070f3;text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{background:radial-gradient(circle at top left,#fef4ff 0,#ffffff 40%,#eef3ff 100%);border-bottom:1px solid rgba(0,0,0,0.05)}
+    .nav{max-width:960px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;font-size:0.95rem}
+    .logo{font-weight:600;letter-spacing:0.04em;font-size:0.98rem}
+    .logo span{opacity:0.6;font-size:0.78rem;margin-left:6px}
+    .nav-links a{margin-left:18px;font-size:0.92rem;opacity:0.8}
+    .nav-links a:hover{opacity:1}
+    .wrap{max-width:960px;margin:36px auto;padding:20px}
+    h1{font-size:1.4rem;margin:0 0 18px}
     .posts{margin-top:18px}
-    .post{background:#fff;border-radius:12px;padding:14px 16px;margin-bottom:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06);}
+    .post{background:#fff;border-radius:12px;padding:14px 16px;margin-bottom:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
     .post a{color:#0b5cff;text-decoration:none;font-weight:600}
     .meta{color:#666;font-size:0.9rem;margin-top:6px}
-    .help{margin-top:22px;color:#666;font-size:0.92rem}
-    a.home{font-size:0.95rem;color:#555}
+    @media(max-width:768px){.nav-links{display:none}}
   </style>
 </head>
 <body>
+  <header>
+    <div class="nav">
+      <div class="logo">
+        cashmere617.com
+        <span>个人网站 / 王老师</span>
+      </div>
+      <div class="nav-links">
+        <a href="/">关于我</a>
+        <a href="/toefl/index.html">托福</a>
+        <a href="/#hobbies">兴趣爱好</a>
+        <a href="/blog/index.html">Blog</a>
+        <a href="/#contact">联系</a>
+      </div>
+    </div>
+  </header>
   <div class="wrap">
-    <header>
-      <h1>Blog</h1>
-      <a class="home" href="/">返回主页</a>
-    </header>
-
-    
+    <h1>Blog</h1>
 
     <div class="posts">
       <!-- 列表：在这里添加新的文章链接 -->
