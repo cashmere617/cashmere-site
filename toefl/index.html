@@ -146,20 +146,26 @@
       </div>
 
       <div class="content" style="margin-top:20px;">
-        <h2 style="margin:0 0 14px;font-size:1.2rem;">学生群体</h2>
+        <h2 style="margin:0 0 14px;font-size:1.2rem;">学生群体 <span style="font-size:0.85rem;color:#888;font-weight:400;">(更新于：<span id="updateDate"></span>)</span></h2>
         <div class="student-chart">
           <div class="chart-container">
             <svg width="300" height="300" viewBox="0 0 300 300">
               <circle cx="150" cy="150" r="100" fill="none" stroke="#f0f0f0" stroke-width="60"/>
-              <circle id="slice1" cx="150" cy="150" r="100" fill="none" stroke="#A7C7E7" stroke-width="60" 
-                      stroke-dasharray="263.89 628.32" stroke-dashoffset="0" transform="rotate(-90 150 150)" 
+              <circle id="slice1" cx="150" cy="150" r="100" fill="none" stroke="#FFB5E8" stroke-width="60" 
+                      stroke-dasharray="12.57 628.32" stroke-dashoffset="0" transform="rotate(-90 150 150)" 
                       class="chart-slice" onmouseenter="highlightSlice(0)" onmouseleave="resetChart()"/>
-              <circle id="slice2" cx="150" cy="150" r="100" fill="none" stroke="#B4E7CE" stroke-width="60" 
-                      stroke-dasharray="289.03 628.32" stroke-dashoffset="-263.89" transform="rotate(-90 150 150)" 
+              <circle id="slice2" cx="150" cy="150" r="100" fill="none" stroke="#C7CEEA" stroke-width="60" 
+                      stroke-dasharray="18.85 628.32" stroke-dashoffset="-12.57" transform="rotate(-90 150 150)" 
                       class="chart-slice" onmouseenter="highlightSlice(1)" onmouseleave="resetChart()"/>
-              <circle id="slice3" cx="150" cy="150" r="100" fill="none" stroke="#FFD6A5" stroke-width="60" 
-                      stroke-dasharray="75.40 628.32" stroke-dashoffset="-552.92" transform="rotate(-90 150 150)" 
+              <circle id="slice3" cx="150" cy="150" r="100" fill="none" stroke="#A7C7E7" stroke-width="60" 
+                      stroke-dasharray="251.33 628.32" stroke-dashoffset="-31.42" transform="rotate(-90 150 150)" 
                       class="chart-slice" onmouseenter="highlightSlice(2)" onmouseleave="resetChart()"/>
+              <circle id="slice4" cx="150" cy="150" r="100" fill="none" stroke="#B4E7CE" stroke-width="60" 
+                      stroke-dasharray="270.18 628.32" stroke-dashoffset="-282.75" transform="rotate(-90 150 150)" 
+                      class="chart-slice" onmouseenter="highlightSlice(3)" onmouseleave="resetChart()"/>
+              <circle id="slice5" cx="150" cy="150" r="100" fill="none" stroke="#FFD6A5" stroke-width="60" 
+                      stroke-dasharray="75.40 628.32" stroke-dashoffset="-552.93" transform="rotate(-90 150 150)" 
+                      class="chart-slice" onmouseenter="highlightSlice(4)" onmouseleave="resetChart()"/>
             </svg>
             <div class="chart-center">
               <div class="chart-center-title" id="chartCenterTitle">学生总数</div>
@@ -168,20 +174,32 @@
           </div>
           <div class="chart-legend">
             <div class="legend-item" onmouseenter="highlightSlice(0)" onmouseleave="resetChart()">
-              <div class="legend-color" style="background:#A7C7E7"></div>
+              <div class="legend-color" style="background:#FFB5E8"></div>
               <div class="legend-text">
-                <div><span class="legend-percent">高中生 42%</span></div>
-                <div class="legend-detail">普高、国际部、美高、国际学校</div>
+                <div><span class="legend-percent">小学生 2%</span></div>
               </div>
             </div>
             <div class="legend-item" onmouseenter="highlightSlice(1)" onmouseleave="resetChart()">
-              <div class="legend-color" style="background:#B4E7CE"></div>
+              <div class="legend-color" style="background:#C7CEEA"></div>
               <div class="legend-text">
-                <div><span class="legend-percent">大学生 46%</span></div>
-                <div class="legend-detail">中科院、复旦大学、上海交大、西安交大、北京外国语、香港大学、南京航空航天大学</div>
+                <div><span class="legend-percent">初中生 3%</span></div>
               </div>
             </div>
             <div class="legend-item" onmouseenter="highlightSlice(2)" onmouseleave="resetChart()">
+              <div class="legend-color" style="background:#A7C7E7"></div>
+              <div class="legend-text">
+                <div><span class="legend-percent">高中生 40%</span></div>
+                <div class="legend-detail">普高、国际部、美高、国际学校</div>
+              </div>
+            </div>
+            <div class="legend-item" onmouseenter="highlightSlice(3)" onmouseleave="resetChart()">
+              <div class="legend-color" style="background:#B4E7CE"></div>
+              <div class="legend-text">
+                <div><span class="legend-percent">大学生 43%</span></div>
+                <div class="legend-detail">中科院、复旦大学、上海交大、西安交大、北京外国语、香港大学、南京航空航天大学</div>
+              </div>
+            </div>
+            <div class="legend-item" onmouseenter="highlightSlice(4)" onmouseleave="resetChart()">
               <div class="legend-color" style="background:#FFD6A5"></div>
               <div class="legend-text">
                 <div><span class="legend-percent">已工作群体 12%</span></div>
@@ -198,8 +216,10 @@
 
     // Chart interaction
     const chartData = [
-      { label: '高中生', percent: '42%', count: 26 },
-      { label: '大学生', percent: '46%', count: 29 },
+      { label: '小学生', percent: '2%', count: 1 },
+      { label: '初中生', percent: '3%', count: 2 },
+      { label: '高中生', percent: '40%', count: 25 },
+      { label: '大学生', percent: '43%', count: 27 },
       { label: '已工作群体', percent: '12%', count: 7 }
     ];
 
@@ -300,6 +320,12 @@
     window.addEventListener('load', function() {
       updateCarousel();
       updateReviewCarousel();
+      
+      // Update date automatically
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      document.getElementById('updateDate').textContent = `${year}-${month}`;
     });
     window.addEventListener('resize', function() {
       updateCarousel();
