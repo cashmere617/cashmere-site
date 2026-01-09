@@ -78,13 +78,51 @@
         </p>
 
         <div class="highlight-box">
-          <h3>多邻国考试全套课程（共 3 小时）</h3>
+          <h3>多邻国考试全套课程（共 5 小时）</h3>
           <ul>
-            <li>写作和口语提升最快</li>
-            <li>背单词 + 正确的学习方法 + 刷题</li>
+            <li>阅读 1 小时</li>
+            <li>听力 1 小时</li>
+            <li>口语 1 小时</li>
+            <li>写作 2 小时</li>
           </ul>
         </div>
 
+      </div>
+
+      <div class="content" style="margin-top:20px;">
+        <h2 style="margin:0 0 14px;font-size:1.2rem;">出分情况</h2>
+        <div style="overflow-x:auto;">
+          <table class="score-table">
+            <thead>
+              <tr>
+                <th>考试时间</th>
+                <th>原来分数</th>
+                <th>出分情况</th>
+                <th>进步</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>十月</td>
+                <td>95</td>
+                <td>115</td>
+                <td>+20</td>
+              </tr>
+              <tr>
+                <td>十二月</td>
+                <td>105</td>
+                <td>120</td>
+                <td>+15</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>平均</td>
+                <td>84.55</td>
+                <td>100.82</td>
+                <td>+16.6</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="content" style="margin-top:20px;">
@@ -107,7 +145,6 @@
               <div class="legend-color" style="background:#A7C7E7"></div>
               <div class="legend-text">
                 <div><span class="legend-percent">高中生 100%</span></div>
-                <div class="legend-detail">美高</div>
               </div>
             </div>
           </div>
@@ -125,7 +162,7 @@
   <script>
     // Chart interaction
     const chartData = [
-      { label: '高中生', percent: '100%', count: 1 }
+      { label: '高中生', percent: '100%', count: 2 }
     ];
 
     function highlightSlice(index) {
@@ -157,7 +194,7 @@
       });
       
       centerTitle.textContent = '学生总数';
-      centerValue.textContent = '1';
+      centerValue.textContent = '2';
     }
 
     // Update date automatically
