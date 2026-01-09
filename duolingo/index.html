@@ -38,11 +38,17 @@
     .chart-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none}
     .chart-center-title{font-size:0.9rem;color:#888;margin-bottom:4px}
     .chart-center-value{font-size:2rem;font-weight:700;color:#333}
+    .score-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.95rem}
+    .score-table th{background:#f0f9ff;padding:12px;text-align:left;font-weight:600;color:#1e40af;border-bottom:2px solid #3b82f6}
+    .score-table td{padding:10px 12px;border-bottom:1px solid #e0e0e0}
+    .score-table tr:hover{background:#f8fafb}
+    .score-table .highlight-row{background:#fef3c7;font-weight:600}
+    .score-table .highlight-row:hover{background:#fde68a}
     .back-home{display:flex;align-items:center;justify-content:center;gap:8px;margin:40px auto 20px;padding:12px 24px;background:#fff;border:2px solid #e0e0e0;border-radius:50px;max-width:180px;color:#555;text-decoration:none;transition:all 0.3s ease;box-shadow:0 2px 8px rgba(0,0,0,0.05)}
     .back-home:hover{background:#f8f9fa;border-color:#A7C7E7;color:#333;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.1)}
     .back-home svg{transition:transform 0.3s ease}
     .back-home:hover svg{transform:translateX(-3px)}
-    @media(max-width:768px){.nav-links{display:none}}
+    @media(max-width:768px){.nav-links{display:none}.score-table{font-size:0.85rem}.score-table th,.score-table td{padding:8px}}
   </style>
 </head>
 <body>
