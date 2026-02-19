@@ -148,8 +148,13 @@
         <div class="student-chart">
           <div class="chart-container">
             <svg width="300" height="300" viewBox="0 0 300 300">
-              <path id="slice1" d="M 150 50 A 100 100 0 1 1 -29.28 53.59 L 150 150 Z" fill="#A7C7E7" class="chart-slice" onmouseenter="highlightSlice(0)" onmouseleave="resetChart()"/>
-              <path id="slice2" d="M -29.28 53.59 A 100 100 0 0 1 150 50 L 150 150 Z" fill="#7DD3FC" class="chart-slice" onmouseenter="highlightSlice(1)" onmouseleave="resetChart()"/>
+              <circle cx="150" cy="150" r="100" fill="none" stroke="#f0f0f0" stroke-width="60"/>
+              <circle id="slice1" cx="150" cy="150" r="100" fill="none" stroke="#A7C7E7" stroke-width="60" 
+                      stroke-dasharray="471.24 628.32" stroke-dashoffset="0" transform="rotate(-90 150 150)" 
+                      class="chart-slice" onmouseenter="highlightSlice(0)" onmouseleave="resetChart()"/>
+              <circle id="slice2" cx="150" cy="150" r="100" fill="none" stroke="#7DD3FC" stroke-width="60" 
+                      stroke-dasharray="157.08 628.32" stroke-dashoffset="-471.24" transform="rotate(-90 150 150)" 
+                      class="chart-slice" onmouseenter="highlightSlice(1)" onmouseleave="resetChart()"/>
             </svg>
           <div class="chart-center">
             <div class="chart-center-title" id="chartCenterTitle">学生总数</div>
