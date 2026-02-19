@@ -109,13 +109,13 @@
             </thead>
             <tbody>
               <tr>
-                <td>十月</td>
+                <td>2025年10月</td>
                 <td>95</td>
                 <td>115</td>
                 <td>+20</td>
               </tr>
               <tr>
-                <td>十二月</td>
+                <td>2025年12月</td>
                 <td>105</td>
                 <td>120</td>
                 <td>+15</td>
@@ -124,6 +124,12 @@
                 <td>2026年1月</td>
                 <td>-</td>
                 <td>首考 130分</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>2026年2月</td>
+                <td>-</td>
+                <td>首考 120</td>
                 <td>-</td>
               </tr>
               <tr class="highlight-row">
@@ -143,20 +149,31 @@
           <div class="chart-container">
             <svg width="300" height="300" viewBox="0 0 300 300">
               <circle cx="150" cy="150" r="100" fill="none" stroke="#f0f0f0" stroke-width="60"/>
-              <circle id="slice1" cx="150" cy="150" r="100" fill="none" stroke="#A7C7E7" stroke-width="60" 
-                      stroke-dasharray="628.32 628.32" stroke-dashoffset="0" transform="rotate(-90 150 150)" 
-                      class="chart-slice" onmouseenter="highlightSlice(0)" onmouseleave="resetChart()"/>
+                  <circle id="slice1" cx="150" cy="150" r="100" fill="none" stroke="#A7C7E7" stroke-width="60"
+                    stroke-dasharray="471.24 628.32" stroke-dashoffset="0" transform="rotate(-90 150 150)"
+                    class="chart-slice" onmouseenter="highlightSlice(0)" onmouseleave="resetChart()"/>
+                  <circle id="slice2" cx="150" cy="150" r="100" fill="none" stroke="#7DD3FC" stroke-width="60"
+                    stroke-dasharray="157.08 628.32" stroke-dashoffset="471.24" transform="rotate(-90 150 150)"
+                    class="chart-slice" onmouseenter="highlightSlice(1)" onmouseleave="resetChart()"/>
             </svg>
-            <div class="chart-center">
-              <div class="chart-center-title" id="chartCenterTitle">学生总数</div>
-              <div class="chart-center-value" id="chartCenterValue">3</div>
-            </div>
+          <div class="chart-center">
+            <div class="chart-center-title" id="chartCenterTitle">学生总数</div>
+            <div class="chart-center-value" id="chartCenterValue">4</div>
+          </div>
           </div>
           <div class="chart-legend">
             <div class="legend-item" onmouseenter="highlightSlice(0)" onmouseleave="resetChart()">
               <div class="legend-color" style="background:#A7C7E7"></div>
               <div class="legend-text">
-                <div><span class="legend-percent">高中生 100%</span></div>
+                <div><span class="legend-percent">高中生 75%</span></div>
+                <div class="legend-detail">3 人</div>
+              </div>
+            </div>
+            <div class="legend-item" onmouseenter="highlightSlice(1)" onmouseleave="resetChart()">
+              <div class="legend-color" style="background:#7DD3FC"></div>
+              <div class="legend-text">
+                <div><span class="legend-percent">大学生 25%</span></div>
+                <div class="legend-detail">1 人</div>
               </div>
             </div>
           </div>
@@ -174,7 +191,8 @@
   <script>
     // Chart interaction
     const chartData = [
-      { label: '高中生', percent: '100%', count: 3 }
+      { label: '高中生', percent: '75%', count: 3 },
+      { label: '大学生', percent: '25%', count: 1 }
     ];
 
     function highlightSlice(index) {
@@ -206,7 +224,7 @@
       });
       
       centerTitle.textContent = '学生总数';
-      centerValue.textContent = '3';
+      centerValue.textContent = '4';
     }
 
     // Update date automatically
