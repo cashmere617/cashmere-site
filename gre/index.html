@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GRE 备考计划定制</title>
+  <style>
+    body{font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;max-width:900px;margin:36px auto;color:#222;padding:0 16px}
+    h1{font-size:28px;margin-bottom:6px}
+    h2{font-size:18px;margin-top:22px}
+    p,li{line-height:1.6}
+    .card{border:1px solid #e6e6e6;padding:18px;border-radius:8px;background:#fff}
+    label{display:block;margin:8px 0 4px;font-weight:600}
+    input,select,textarea{width:100%;padding:8px;border:1px solid #ddd;border-radius:6px}
+    button{margin-top:10px;padding:10px 14px;border:none;background:#0070f3;color:#fff;border-radius:6px;cursor:pointer}
+    .muted{color:#666;font-size:13px}
+  </style>
+</head>
+<body>
+  <h1>GRE 备考计划定制</h1>
+  <div class="card">
+    <p>GRE 是我申请美本后投入时间最多的考试。它更侧重逻辑与词汇——与托福/雅思不同。我全程自学，最终在最后 2–3 个月（兼顾旅行与实习）把成绩考出来。现在我把这套自学流程总结成可复制的计划，并提供定制化的备考计划（目前仅提供计划定制，不做一对一长期辅导）。</p>
+
+    <h2>我将提供的内容</h2>
+    <ul>
+      <li>备考整体策略与时间规划（定制）</li>
+      <li>各部分（Verbal / Quant / 写作）的经验总结与做题方法</li>
+      <li>刷题网站与资源推荐</li>
+      <li>配套辅助资料（PDF 可下载）</li>
+      <li>后期备考问题跟踪回答（直接问我）</li>
+    </ul>
+
+    <h2>适合的人群</h2>
+    <ul>
+      <li>小白（帮助你少走弯路，把时间用在正确的事情上）</li>
+      <li>自学或找过老师但迟迟不出分的人（可能方向或节奏有问题）</li>
+    </ul>
+
+    <h2>我的承诺</h2>
+    <p class="muted">我对方法有百分之百的信心，但这需要你非常努力配合——真下工夫才能复制我的结果。</p>
+
+    <h2>在给你定制计划之前，我需要你先填写以下信息</h2>
+    <form id="info-form">
+      <label>目标分数</label>
+      <input type="text" id="target" placeholder="例如：330（或填写 Verbal/Quant 目标）">
+
+      <label>现有分数（若无可填 N/A）</label>
+      <input type="text" id="current" placeholder="例如：310 / V:155 Q:155">
+
+      <label>备考时间</label>
+      <select id="total-time">
+        <option value="3">3 个月</option>
+        <option value="4">4 个月</option>
+        <option value="6">6 个月</option>
+        <option value="other">其他</option>
+      </select>
+
+      <label>每天可学习时长</label>
+      <input type="text" id="per-day" placeholder="例如：每天 2 小时">
+
+      <label>语言基础（多邻国/托福/雅思 分数）</label>
+      <input type="text" id="lang-base" placeholder="例如：托福 105">
+
+      <label>词汇量估计（本地词表/已掌握 GRE 词汇）</label>
+      <input type="text" id="vocab" placeholder="例如：8000 词；掌握多少 GRE 高频词">
+
+      <label>数学基础（自评）</label>
+      <select id="math-base">
+        <option>薄弱（需要从基础补）</option>
+        <option>中等（能做大部分题，但速度慢）</option>
+        <option>良好（基础稳，需提高解题速度）</option>
+      </select>
+
+      <label>你申请的项目 / 专业（或简单说明用途）</label>
+      <input type="text" id="program" placeholder="例如：CS 本科申请 / 机器学习方向">
+
+      <button id="generate">生成计划所需信息摘要</button>
+    </form>
+
+    <h2>摘要（复制下方内容并发送给我）</h2>
+    <textarea id="summary" rows="8" readonly placeholder="点击上方按钮生成摘要，复制并发送给我以便我为你定制计划。"></textarea>
+
+    <p class="muted">注：目前我只提供计划定制服务；如果想进一步做一对一，请在咨询时说明（我会视时间决定是否接单）。</p>
+  </div>
+
+  <script>
+    document.getElementById('generate').addEventListener('click', function(e){
+      e.preventDefault();
+      var t = document.getElementById('target').value || '未填写';
+      var c = document.getElementById('current').value || '未填写';
+      var tt = document.getElementById('total-time').value || '未填写';
+      var pd = document.getElementById('per-day').value || '未填写';
+      var lb = document.getElementById('lang-base').value || '未填写';
+      var vb = document.getElementById('vocab').value || '未填写';
+      var mb = document.getElementById('math-base').value || '未填写';
+      var prog = document.getElementById('program').value || '未填写';
+      var ttText = tt === 'other' ? '其他' : tt + ' 个月';
+
+      var s = [];
+      s.push('GRE 备考信息摘要：');
+      s.push('\n目标分数：' + t);
+      s.push('\n现有分数：' + c);
+      s.push('\n备考总时长：' + ttText);
+      s.push('\n每天可学习时长：' + pd);
+      s.push('\n语言基础：' + lb);
+      s.push('\n词汇估计：' + vb);
+      s.push('\n数学基础：' + mb);
+      s.push('\n申请项目/用途：' + prog);
+
+      document.getElementById('summary').value = s.join('\n');
+      document.getElementById('summary').select();
+    });
+  </script>
+</body>
+</html>
