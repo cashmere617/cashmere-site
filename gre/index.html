@@ -25,6 +25,8 @@
     .back-home{display:flex;align-items:center;justify-content:center;gap:8px;margin:24px auto 8px;padding:12px 24px;background:#fff;border:2px solid #e0e0e0;border-radius:50px;max-width:180px;color:#555;text-decoration:none;transition:all 0.3s ease;box-shadow:0 2px 8px rgba(0,0,0,0.05)}
     .back-home:hover{background:#f8f9fa;border-color:#A7C7E7;color:#333;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.1)}
     @media(max-width:768px){.nav-links{display:none}}
+    .gallery{display:flex;gap:12px;overflow-x:auto;padding:12px 4px}
+    .gallery img{width:320px;height:220px;object-fit:cover;border-radius:10px;box-shadow:0 6px 18px rgba(15,23,42,0.06);background:#f9f9f9}
   </style>
 </head>
 <body>
@@ -55,7 +57,7 @@
       </div>
 
       <div class="content">
-        <h2>我的备考计划包含</h2>
+        <h2>备考计划包含</h2>
         <ul>
           <li>备考整体策略与时间规划（定制）</li>
           <li>各部分（Verbal / Quant / 写作）的经验总结与做题方法</li>
@@ -77,37 +79,31 @@
 
       <div class="content">
         <h2>定制前我需要先了解的信息</h2>
-        <p>请在咨询时提供以下信息（直接文字列出即可）：</p>
-        <ul>
-          <li>目标分数</li>
-          <li>现有分数</li>
-          <li>备考时间
-            <ul>
-              <li>每天能学多长时间</li>
-              <li>计划多久出分</li>
-            </ul>
-          </li>
-          <li>语言基础
-            <ul>
-              <li>多邻国/托福/雅思分数</li>
-              <li>词汇量多少</li>
-              <li>GRE词汇掌握多少</li>
-            </ul>
-          </li>
-          <li>数学基础</li>
-          <li>申请的什么项目（用途/专业）</li>
-        </ul>
+        <div style="background:#f0f9ff;border-left:4px solid #3b82f6;padding:14px 16px;border-radius:8px;margin:12px 0">
+          <p style="margin:0 0 8px;color:#1e40af;font-weight:600">请在咨询时提供以下信息（直接文字列出即可）：</p>
+          <ul style="margin:0;padding-left:18px;color:#333">
+            <li>目标分数</li>
+            <li>现有分数</li>
+            <li>备考时间
+              <ul>
+                <li>每天能学多长时间</li>
+                <li>计划多久出分</li>
+              </ul>
+            </li>
+            <li>语言基础
+              <ul>
+                <li>多邻国/托福/雅思分数</li>
+                <li>词汇量多少</li>
+                <li>GRE词汇掌握多少</li>
+              </ul>
+            </li>
+            <li>数学基础</li>
+            <li>申请的什么项目（用途/专业）</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="content">
-        <h2>关于方法论与差异化优势</h2>
-        <p>我的方法面向自学者并注重可复制性与实用性：我曾全程自学且在最后阶段兼顾工作与旅行出分，因此在设计计划时会考虑学习成本、节奏安排与心理承受力。很多从“教学端”出发的老师难以理解自学过程中遇到的具体困难，而我能从考生视角出发，给出更接地气的建议与可操作的任务清单。</p>
-      </div>
-
-      <div class="content">
-        <h2>后续支持</h2>
-        <p>计划交付后，你可以在后续备考过程中向我提问，我会在合理范围内提供跟踪回答，帮助你调整计划与把握重点。但目前不提供长期一对一教学服务（如需，请在咨询时特别说明，我会视时间决定是否接单）。</p>
-      </div>
+      
 
       <div class="content">
         <h2>如何开始</h2>
@@ -116,6 +112,18 @@
           <li>我会根据你的基础和目标，给出一个定制的时间表与日常任务清单（含资源与题量建议）。</li>
           <li>根据进度我们可短期复查与微调计划（文字沟通为主）。</li>
         </ol>
+      </div>
+
+      <div class="content">
+        <h2>学生评价</h2>
+        <p class="muted">部分学生的学习记录与反馈（图片示例）</p>
+        <div class="gallery" aria-label="学生评价图片画廊">
+          <img src="gre1.jpeg" alt="学生评价 1" loading="lazy" />
+          <img src="gre2.jpeg" alt="学生评价 2" loading="lazy" />
+          <img src="gre3.jpeg" alt="学生评价 3" loading="lazy" />
+          <img src="gre4.jpeg" alt="学生评价 4" loading="lazy" />
+          <img src="gre5.jpeg" alt="学生评价 5" loading="lazy" />
+        </div>
       </div>
 
       <a class="back-home" href="/">
